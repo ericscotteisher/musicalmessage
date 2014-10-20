@@ -1,11 +1,5 @@
-// //set up oscillator
-// var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-// oscillator = audioCtx.createOscillator();
-// var gainNode = audioCtx.createGain();
-// oscillator.connect(gainNode);
-// gainNode.connect(audioCtx.destination);
-// oscillator.type = 0; // sine wave
-// oscillator.frequency.value = 0; // value in hertz
+//This file sets up a system for mapping keystrokes to sounds and storing them in an array. The listener loops through the array indefinitely.
+
 
 //set up key mapping
 sounds = [];
@@ -47,16 +41,18 @@ function playMessage() {
     alert("Please leave a message for me to play!");
   } else {
     window.setInterval( function changeSounds() {
-      if (i > message.length) {
-        i = 0;
+      if (i == message.length) {
+        console.log(i);
+        console.log(message);
         playKey(message[i]);
+        i = 0;
       } else {
+        console.log(i);
+        console.log(message);
         playKey(message[i]);
         i += 1;
       };
-      console.log(message);
-      console.log(i);
-  }, 1500);
+  }, 500);
   }
 };
 
