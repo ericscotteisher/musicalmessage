@@ -35,26 +35,41 @@ function playKey(e){
 };
 
 //play message
+//Eric turned this into a While Loop
 function playMessage() {
-  i = 0;
-  if (message.length == 0) {
-    alert("Please leave a message for me to play!");
-  } else {
-    window.setInterval( function changeSounds() {
-      if (i == message.length) {
-        console.log(i);
-        console.log(message);
+    setInterval(function(){
+      var i = 0;
+      while (i < message.length) {
+        console.log("key down # " + message.length);
+        console.log(message[i]);
         playKey(message[i]);
-        i = 0;
-      } else {
-        console.log(i);
-        console.log(message);
-        playKey(message[i]);
-        i += 1;
-      };
-  }, 500);
-  }
-};
+        i++;
+      } 
+    }, 1000);
+}
+
+
+// // This was your original play message
+// function playMessage() {
+//   i = 0;
+//   if (message.length == 0) {
+//     alert("Please leave a message for me to play!");
+//   } else {
+//     window.setInterval( function changeSounds() {
+//       if (i == message.length) {
+//         console.log(i);
+//         console.log(message);
+//         playKey(message[i]);
+//         i = 0;
+//       } else {
+//         console.log(i);
+//         console.log(message);
+//         playKey(message[i]);
+//         i += 1;
+//       };
+//   }, 500);
+//   }
+// };
 
 
 //play message after user clicks listen
@@ -74,6 +89,6 @@ function playMessageTwo() {
       };
       console.log(message);
       console.log(oscillator.frequency.value);
-  }, 1500);
+  }, 5000);
   }
 };
