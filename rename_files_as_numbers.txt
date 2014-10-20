@@ -1,6 +1,0 @@
-a=1
-for i in *; do
-	new=$(printf "%d.wav" ${a})
-	mv ${i} ${new}
-	let a=a+1; 
-done
